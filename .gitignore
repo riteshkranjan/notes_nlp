@@ -1,0 +1,6 @@
+/notes_nlp_client/e2e/
+/notes_nlp_client/node_modules/
+/notes_nlp_ws/__pycache__/
+*.pyc
+notes_nlp_client/.editorconfig
+*/__pycache__/
