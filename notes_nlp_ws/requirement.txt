@@ -1,0 +1,16 @@
+flask
+nltk
+gensim
+corpora
+gensim
+sklearn
+yaml
+fuzzy
+textblob
+
+
+falsk-cors
+pathlib
+
+pandas
+tensorflow
