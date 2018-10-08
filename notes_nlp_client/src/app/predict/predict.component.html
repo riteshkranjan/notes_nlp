@@ -1,0 +1,33 @@
+<div class="col-sm-12">
+  <h1>Infosys Ltd</h1>
+  <p>Predict</p>
+</div>
+<div class="col-sm-6 form-group">
+  <app-spinner [isRunning]="isRequesting"></app-spinner>
+  <input type="text" [(ngModel)]="search" class="form-control" aria-placeholder="predict query" placeholder="predict query"/>
+  
+</div>
+<div class="btn-group col-sm-3">
+    <input (click)="getResults()" 
+    [disabled]="!search || search == '' || isRequesting" 
+    type="submit" class="form-control" />
+  
+    <input (click)="reset()" [disabled]="isRequesting" 
+    type="reset" class="form-control btnReset" />
+    </div>
+<div *ngIf="response" class="col-sm-3 priorityList">
+    <ul>
+        <li *ngFor="let prediction of response.predictions">
+            <label [ngClass]="prediction.priority > 3 ? 'label label-default' : 'label label-success'">{{prediction.name}}
+              <span class="badge">{{prediction.percentage}} %</span>
+            </label>
+            <label>
+                * There are <em>{{prediction.percentage}} %</em> chances that system will behave as <em>{{prediction.name}}</em>.
+            </label>
+        </li>      
+    </ul>  
+</div>
+<div class="col-sm-12" *ngIf="response.debugInfo">
+        <label for="debugInfo">Debug Info:</label>
+        <textarea class="debugInfo" name="debugInfo">{{response.debugInfo}}</textarea>
+    </div>
